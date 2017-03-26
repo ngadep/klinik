@@ -23,14 +23,17 @@ uses
   dxSkinXmas2008Blue, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, dxLayoutContainer, cxGridCustomView,
   cxGridCustomTableView, cxGridCustomLayoutView, cxGridLayoutView, cxClasses,
-  cxGridLevel, cxGrid;
+  cxGridLevel, cxGrid, Data.DB, MemDS, DBAccess, MyAccess, cxDBData,
+  cxGridDBLayoutView;
 
 type
   TForm1 = class(TForm)
     GLevel: TcxGridLevel;
     Grid: TcxGrid;
-    GridLayoutView1Group_Root: TdxLayoutGroup;
-    GridLayoutView1: TcxGridLayoutView;
+    QPasien: TMyQuery;
+    DsPasien: TDataSource;
+    GridDBLayoutView1Group_Root: TdxLayoutGroup;
+    GridDBLayoutView1: TcxGridDBLayoutView;
   private
     { Private declarations }
   public
@@ -43,5 +46,7 @@ var
 implementation
 
 {$R *.dfm}
+
+uses uDm;
 
 end.

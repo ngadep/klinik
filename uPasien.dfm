@@ -20,16 +20,13 @@ object Form1: TForm1
     Height = 449
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 72
-    ExplicitTop = 32
-    ExplicitWidth = 250
-    ExplicitHeight = 200
-    object GridLayoutView1: TcxGridLayoutView
+    object GridDBLayoutView1: TcxGridDBLayoutView
       Navigator.Buttons.CustomButtons = <>
+      DataController.DataSource = DsPasien
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
-      object GridLayoutView1Group_Root: TdxLayoutGroup
+      object GridDBLayoutView1Group_Root: TdxLayoutGroup
         AlignHorz = ahLeft
         AlignVert = avTop
         ButtonOptions.Buttons = <>
@@ -39,7 +36,17 @@ object Form1: TForm1
       end
     end
     object GLevel: TcxGridLevel
-      GridView = GridLayoutView1
+      GridView = GridDBLayoutView1
     end
+  end
+  object QPasien: TMyQuery
+    Connection = Dm.Con
+    Left = 40
+    Top = 16
+  end
+  object DsPasien: TDataSource
+    DataSet = QPasien
+    Left = 104
+    Top = 16
   end
 end
