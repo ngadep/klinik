@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object Grid: TcxGrid
@@ -207,6 +208,8 @@ object Form1: TForm1
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
+      OptionsCustomize.ColumnsQuickCustomization = True
+      OptionsView.ColumnAutoWidth = True
       OptionsView.GroupByBox = False
       OptionsView.Indicator = True
       object Tablepasienid: TcxGridDBColumn
@@ -241,6 +244,7 @@ object Form1: TForm1
       object Tablepasienalamat: TcxGridDBColumn
         Caption = 'Alamat Lengkap'
         DataBinding.FieldName = 'alamat'
+        Visible = False
         Width = 91
       end
       object Tablepasienpekerjaan: TcxGridDBColumn
@@ -251,6 +255,7 @@ object Form1: TForm1
       object Tablepasienpendidikan: TcxGridDBColumn
         Caption = 'Studi'
         DataBinding.FieldName = 'pendidikan'
+        Visible = False
         Width = 38
       end
       object Tablepasiengolongan_darah: TcxGridDBColumn
@@ -266,16 +271,19 @@ object Form1: TForm1
       object Tablepasiennama_ortu: TcxGridDBColumn
         Caption = 'ORTU'
         DataBinding.FieldName = 'nama_ortu'
+        Visible = False
         Width = 47
       end
       object Tablepasienpekerjaan_ortu: TcxGridDBColumn
         Caption = 'Pekerjaan ORTU'
         DataBinding.FieldName = 'pekerjaan_ortu'
+        Visible = False
         Width = 38
       end
       object Tablepasiennama_pasangan: TcxGridDBColumn
         Caption = 'Pasangan'
         DataBinding.FieldName = 'nama_pasangan'
+        Visible = False
         Width = 33
       end
     end
