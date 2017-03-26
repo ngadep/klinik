@@ -24,16 +24,61 @@ uses
   cxDataStorage, cxEdit, cxNavigator, dxLayoutContainer, cxGridCustomView,
   cxGridCustomTableView, cxGridCustomLayoutView, cxGridLayoutView, cxClasses,
   cxGridLevel, cxGrid, Data.DB, MemDS, DBAccess, MyAccess, cxDBData,
-  cxGridDBLayoutView;
+  cxGridDBLayoutView, cxGridViewLayoutContainer, cxDropDownEdit,
+  cxGridTableView, cxGridDBTableView, cxMemo;
 
 type
   TForm1 = class(TForm)
-    GLevel: TcxGridLevel;
+    GLevelViewTabel: TcxGridLevel;
     Grid: TcxGrid;
     QPasien: TMyQuery;
     DsPasien: TDataSource;
-    GridDBLayoutView1Group_Root: TdxLayoutGroup;
-    GridDBLayoutView1: TcxGridDBLayoutView;
+    LayoutPasienGroup_Root: TdxLayoutGroup;
+    LayoutPasien: TcxGridDBLayoutView;
+    LayoutPasienLayoutItem1: TcxGridLayoutItem;
+    LayoutPasienid: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem2: TcxGridLayoutItem;
+    LayoutPasienkode: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem3: TcxGridLayoutItem;
+    LayoutPasiennama: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem4: TcxGridLayoutItem;
+    LayoutPasienjenis_kelamin: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem5: TcxGridLayoutItem;
+    LayoutPasientempat_lahir: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem6: TcxGridLayoutItem;
+    LayoutPasientanggal_lahir: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem7: TcxGridLayoutItem;
+    LayoutPasienalamat: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem8: TcxGridLayoutItem;
+    LayoutPasienpekerjaan: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem9: TcxGridLayoutItem;
+    LayoutPasienpendidikan: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem10: TcxGridLayoutItem;
+    LayoutPasiengolongan_darah: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem11: TcxGridLayoutItem;
+    LayoutPasienstatus_nikah: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem12: TcxGridLayoutItem;
+    LayoutPasiennama_ortu: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem13: TcxGridLayoutItem;
+    LayoutPasienpekerjaan_ortu: TcxGridDBLayoutViewItem;
+    LayoutPasienLayoutItem14: TcxGridLayoutItem;
+    LayoutPasiennama_pasangan: TcxGridDBLayoutViewItem;
+    GLevelViewLayout: TcxGridLevel;
+    Tablepasien: TcxGridDBTableView;
+    Tablepasienid: TcxGridDBColumn;
+    Tablepasienkode: TcxGridDBColumn;
+    Tablepasiennama: TcxGridDBColumn;
+    Tablepasienjenis_kelamin: TcxGridDBColumn;
+    Tablepasientempat_lahir: TcxGridDBColumn;
+    Tablepasientanggal_lahir: TcxGridDBColumn;
+    Tablepasienalamat: TcxGridDBColumn;
+    Tablepasienpekerjaan: TcxGridDBColumn;
+    Tablepasienpendidikan: TcxGridDBColumn;
+    Tablepasiengolongan_darah: TcxGridDBColumn;
+    Tablepasienstatus_nikah: TcxGridDBColumn;
+    Tablepasiennama_ortu: TcxGridDBColumn;
+    Tablepasienpekerjaan_ortu: TcxGridDBColumn;
+    Tablepasiennama_pasangan: TcxGridDBColumn;
   private
     { Private declarations }
   public
