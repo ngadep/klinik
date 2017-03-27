@@ -10,6 +10,7 @@ object FrmPasien: TFrmPasien
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = Menu
   OldCreateOrder = False
   ShowHint = True
   WindowState = wsMaximized
@@ -23,9 +24,9 @@ object FrmPasien: TFrmPasien
     Height = 390
     Align = alClient
     TabOrder = 0
-    LookAndFeel.NativeStyle = True
-    ExplicitWidth = 692
-    ExplicitHeight = 443
+    LookAndFeel.NativeStyle = False
+    LookAndFeel.SkinName = 'Lilian'
+    RootLevelOptions.DetailTabsPosition = dtpTop
     object Tablepasien: TcxGridDBTableView
       Navigator.Buttons.ConfirmDelete = True
       Navigator.Buttons.CustomButtons = <>
@@ -45,6 +46,7 @@ object FrmPasien: TFrmPasien
       DataController.Summary.SummaryGroups = <>
       EditForm.UseDefaultLayout = False
       OptionsBehavior.CellHints = True
+      OptionsBehavior.GoToNextCellOnEnter = True
       OptionsBehavior.IncSearch = True
       OptionsBehavior.NavigatorHints = True
       OptionsBehavior.EditMode = emInplaceEditForm
@@ -311,9 +313,6 @@ object FrmPasien: TFrmPasien
       Navigator.Buttons.Filter.Visible = False
       Navigator.Visible = True
       DataController.DataSource = DsRekamMedis
-      DataController.DetailKeyFieldNames = 'pasien_id'
-      DataController.KeyFieldNames = 'Id'
-      DataController.MasterKeyFieldNames = 'id'
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
@@ -337,13 +336,22 @@ object FrmPasien: TFrmPasien
         DataBinding.FieldName = 'pasien_id'
         Visible = False
       end
+      object TableRekamtanggal: TcxGridDBColumn
+        Caption = 'Tanggal'
+        DataBinding.FieldName = 'tanggal'
+        PropertiesClassName = 'TcxDateEditProperties'
+        Properties.AssignedValues.DisplayFormat = True
+        Properties.AssignedValues.EditFormat = True
+        LayoutItem = TableRekamLayoutItem1.Owner
+        Width = 112
+      end
       object TableRekamanamnesis: TcxGridDBColumn
         Caption = 'Anamnesis'
         DataBinding.FieldName = 'anamnesis'
         PropertiesClassName = 'TcxMemoProperties'
         Properties.WantReturns = False
         LayoutItem = TableRekamLayoutItem3.Owner
-        Width = 1534
+        Width = 90
       end
       object TableRekamhasil_pemeriksaan: TcxGridDBColumn
         Caption = 'Hasil Pemeriksaan'
@@ -351,7 +359,7 @@ object FrmPasien: TFrmPasien
         PropertiesClassName = 'TcxMemoProperties'
         Properties.WantReturns = False
         LayoutItem = TableRekamLayoutItem4.Owner
-        Width = 1534
+        Width = 92
       end
       object TableRekamdiagnosis: TcxGridDBColumn
         Caption = 'Diagnosis'
@@ -359,7 +367,7 @@ object FrmPasien: TFrmPasien
         PropertiesClassName = 'TcxMemoProperties'
         Properties.WantReturns = False
         LayoutItem = TableRekamLayoutItem5.Owner
-        Width = 1534
+        Width = 90
       end
       object TableRekampenatalaksanaan: TcxGridDBColumn
         Caption = 'Penatalaksanaan'
@@ -367,7 +375,7 @@ object FrmPasien: TFrmPasien
         PropertiesClassName = 'TcxMemoProperties'
         Properties.WantReturns = False
         LayoutItem = TableRekamLayoutItem6.Owner
-        Width = 1534
+        Width = 92
       end
       object TableRekamtindakan_obat: TcxGridDBColumn
         Caption = 'Tindakan/Obat'
@@ -375,7 +383,7 @@ object FrmPasien: TFrmPasien
         PropertiesClassName = 'TcxMemoProperties'
         Properties.WantReturns = False
         LayoutItem = TableRekamLayoutItem7.Owner
-        Width = 1534
+        Width = 91
       end
       object TableRekampelayanan_lain: TcxGridDBColumn
         Caption = 'Pelayanan Lain'
@@ -383,7 +391,7 @@ object FrmPasien: TFrmPasien
         PropertiesClassName = 'TcxMemoProperties'
         Properties.WantReturns = False
         LayoutItem = TableRekamLayoutItem8.Owner
-        Width = 1534
+        Width = 91
       end
       object TableRekamRootGroup: TcxGridInplaceEditFormGroup
         AlignHorz = ahLeft
@@ -391,7 +399,6 @@ object FrmPasien: TFrmPasien
         CaptionOptions.Text = 'Template Card'
         ButtonOptions.Buttons = <>
         Hidden = True
-        ItemIndex = 1
         LayoutDirection = ldHorizontal
         ShowBorder = False
         Index = -1
@@ -401,7 +408,7 @@ object FrmPasien: TFrmPasien
         AlignHorz = ahClient
         AlignVert = avClient
         SizeOptions.Height = 52
-        Index = 0
+        Index = 1
       end
       object TableRekamLayoutItem4: TcxGridInplaceEditFormLayoutItem
         Parent = TableRekamGroup1.Owner
@@ -409,14 +416,14 @@ object FrmPasien: TFrmPasien
         AlignVert = avTop
         SizeOptions.Height = 62
         SizeOptions.Width = 313
-        Index = 1
+        Index = 2
       end
       object TableRekamLayoutItem5: TcxGridInplaceEditFormLayoutItem
         Parent = TableRekamGroup1.Owner
         AlignHorz = ahClient
         SizeOptions.Height = 71
         SizeOptions.Width = 246
-        Index = 2
+        Index = 3
       end
       object TableRekamLayoutItem6: TcxGridInplaceEditFormLayoutItem
         Parent = TableRekamGroup2.Owner
@@ -437,7 +444,7 @@ object FrmPasien: TFrmPasien
         Index = 2
       end
       object TableRekamGroup1: TdxLayoutGroup
-        Parent = TableRekamRootGroup.Owner
+        Parent = TableRekamRootGroup
         AlignHorz = ahLeft
         CaptionOptions.Text = 'New Group'
         CaptionOptions.Visible = False
@@ -446,20 +453,25 @@ object FrmPasien: TFrmPasien
         Index = 0
       end
       object TableRekamGroup2: TdxLayoutGroup
-        Parent = TableRekamRootGroup.Owner
+        Parent = TableRekamRootGroup
         AlignHorz = ahLeft
         CaptionOptions.Text = 'New Group'
         CaptionOptions.Visible = False
         ButtonOptions.Buttons = <>
         Index = 1
       end
+      object TableRekamLayoutItem1: TcxGridInplaceEditFormLayoutItem
+        Parent = TableRekamGroup1.Owner
+        Index = 0
+      end
     end
     object GLevelPasien: TcxGridLevel
-      Caption = 'Tabel'
+      Caption = 'Daftar Pasien'
       GridView = Tablepasien
-      object GLevelRekam: TcxGridLevel
-        GridView = TableRekam
-      end
+    end
+    object GLEvelRekam: TcxGridLevel
+      Caption = 'Daftar Rekam Medis Pasien'
+      GridView = TableRekam
     end
   end
   object DsPasien: TDataSource
@@ -503,5 +515,27 @@ object FrmPasien: TFrmPasien
         ParamType = ptInput
         Value = 1
       end>
+  end
+  object Skin: TdxSkinController
+    NativeStyle = False
+    SkinName = 'Lilian'
+    Left = 336
+    Top = 216
+  end
+  object Menu: TMainMenu
+    Left = 480
+    Top = 192
+    object MasterData1: TMenuItem
+      Caption = 'Master Data'
+      object DaftarPasien1: TMenuItem
+        Caption = 'Daftar Pasien'
+      end
+    end
+    object Bantuan1: TMenuItem
+      Caption = 'Bantuan'
+      object entangAplikasi1: TMenuItem
+        Caption = 'Tentang Aplikasi'
+      end
+    end
   end
 end

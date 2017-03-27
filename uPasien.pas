@@ -27,7 +27,8 @@ uses
   cxGridDBLayoutView, cxGridViewLayoutContainer, cxDropDownEdit,
   cxGridTableView, cxGridDBTableView, cxMemo, cxGridCardView, cxGridDBCardView,
   cxRadioGroup, cxButtonEdit, System.Actions, Vcl.ActnList,
-  cxGridInplaceEditForm;
+  cxGridInplaceEditForm, Vcl.Menus, dxSkinsForm, cxCalendar, cxTimeEdit,
+  dxDateTimeWheelPicker;
 
 type
   TFrmPasien = class(TForm)
@@ -51,7 +52,6 @@ type
     Tablepasiennama_pasangan: TcxGridDBColumn;
     ActionList: TActionList;
     AcAuto: TAction;
-    GLevelRekam: TcxGridLevel;
     DsRekamMedis: TDataSource;
     TblPasien: TMyTable;
     TblRekamMedis: TMyTable;
@@ -64,6 +64,14 @@ type
     TableRekampenatalaksanaan: TcxGridDBColumn;
     TableRekamtindakan_obat: TcxGridDBColumn;
     TableRekampelayanan_lain: TcxGridDBColumn;
+    Skin: TdxSkinController;
+    Menu: TMainMenu;
+    MasterData1: TMenuItem;
+    DaftarPasien1: TMenuItem;
+    Bantuan1: TMenuItem;
+    entangAplikasi1: TMenuItem;
+    TableRekamtanggal: TcxGridDBColumn;
+    GLEvelRekam: TcxGridLevel;
     procedure AcAutoExecute(Sender: TObject);
   private
     { Private declarations }
