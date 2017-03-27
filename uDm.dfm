@@ -13,4 +13,19 @@ object Dm: TDm
     Top = 8
     EncryptedPassword = '8CFF9AFF8DFF89FF9AFF8DFF'
   end
+  object QTemp: TMyQuery
+    Connection = Con
+    Left = 64
+    Top = 56
+  end
+  object QExe: TMyQuery
+    Connection = Con
+    Left = 112
+    Top = 56
+  end
+  object QOpen: TMyQuery
+    Connection = Con
+    Left = 16
+    Top = 56
+  end
 end
