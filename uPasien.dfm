@@ -44,7 +44,9 @@ object FrmPasien: TFrmPasien
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
       EditForm.UseDefaultLayout = False
+      OptionsBehavior.CellHints = True
       OptionsBehavior.IncSearch = True
+      OptionsBehavior.NavigatorHints = True
       OptionsBehavior.EditMode = emInplaceEditForm
       OptionsCustomize.ColumnsQuickCustomization = True
       OptionsView.GroupByBox = False
@@ -316,8 +318,10 @@ object FrmPasien: TFrmPasien
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
       EditForm.UseDefaultLayout = False
+      OptionsBehavior.CellHints = True
       OptionsBehavior.GoToNextCellOnEnter = True
       OptionsBehavior.IncSearch = True
+      OptionsBehavior.NavigatorHints = True
       OptionsBehavior.EditMode = emInplaceEditForm
       OptionsCustomize.ColumnsQuickCustomization = True
       OptionsView.ColumnAutoWidth = True
