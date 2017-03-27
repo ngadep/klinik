@@ -493,12 +493,6 @@ object FrmPasien: TFrmPasien
     Left = 144
     Top = 256
   end
-  object Skin: TdxSkinController
-    NativeStyle = False
-    SkinName = 'Lilian'
-    Left = 336
-    Top = 216
-  end
   object Menu: TMainMenu
     Left = 480
     Top = 192
