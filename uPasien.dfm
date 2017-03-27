@@ -12,6 +12,7 @@ object FrmPasien: TFrmPasien
   Font.Style = []
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Grid: TcxGrid
@@ -261,7 +262,7 @@ object FrmPasien: TFrmPasien
         Index = 0
       end
       object TablepasienGroup4: TdxLayoutGroup
-        Parent = TablepasienRootGroup.Owner
+        Parent = TablepasienRootGroup
         AlignHorz = ahClient
         AlignVert = avTop
         CaptionOptions.Text = 'Keterangan'
@@ -281,7 +282,7 @@ object FrmPasien: TFrmPasien
         Index = 1
       end
       object TablepasienGroup1: TdxLayoutAutoCreatedGroup
-        Parent = TablepasienRootGroup.Owner
+        Parent = TablepasienRootGroup
         LayoutDirection = ldHorizontal
         Index = 0
         AutoCreated = True
@@ -295,8 +296,7 @@ object FrmPasien: TFrmPasien
   object QPasien: TMyQuery
     Connection = Dm.Con
     SQL.Strings = (
-      'SELECT * FROM TbPasien')
-    Active = True
+      '')
     Left = 40
     Top = 16
   end

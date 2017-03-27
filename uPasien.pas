@@ -26,7 +26,8 @@ uses
   cxGridLevel, cxGrid, Data.DB, MemDS, DBAccess, MyAccess, cxDBData,
   cxGridDBLayoutView, cxGridViewLayoutContainer, cxDropDownEdit,
   cxGridTableView, cxGridDBTableView, cxMemo, cxGridCardView, cxGridDBCardView,
-  cxRadioGroup, cxButtonEdit, System.Actions, Vcl.ActnList;
+  cxRadioGroup, cxButtonEdit, System.Actions, Vcl.ActnList,
+  cxGridInplaceEditForm;
 
 type
   TFrmPasien = class(TForm)
@@ -52,6 +53,7 @@ type
     ActionList: TActionList;
     AcAuto: TAction;
     procedure AcAutoExecute(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,6 +80,11 @@ begin
       dm.OpenQuery(LSQL);
       QPasien.FieldByName('Kode').AsString := dm.QOpen.Fields[0].AsString;
     end;
+end;
+
+procedure TFrmPasien.FormShow(Sender: TObject);
+begin
+  Dm.ExecSQL(QPasien, 'SELECT * FROM TbPasien');
 end;
 
 end.
