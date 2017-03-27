@@ -25,8 +25,9 @@ object FrmPasien: TFrmPasien
     Height = 390
     Align = alClient
     TabOrder = 0
+    LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = 'Lilian'
+    LookAndFeel.SkinName = ''
     RootLevelOptions.DetailTabsPosition = dtpTop
     object Tablepasien: TcxGridDBTableView
       Navigator.Buttons.ConfirmDelete = True
