@@ -31,9 +31,8 @@ uses
 
 type
   TFrmPasien = class(TForm)
-    GLevelViewTabel: TcxGridLevel;
+    GLevelPasien: TcxGridLevel;
     Grid: TcxGrid;
-    QPasien: TMyQuery;
     DsPasien: TDataSource;
     Tablepasien: TcxGridDBTableView;
     Tablepasienid: TcxGridDBColumn;
@@ -52,8 +51,20 @@ type
     Tablepasiennama_pasangan: TcxGridDBColumn;
     ActionList: TActionList;
     AcAuto: TAction;
+    GLevelRekam: TcxGridLevel;
+    DsRekamMedis: TDataSource;
+    TblPasien: TMyTable;
+    TblRekamMedis: TMyTable;
+    TableRekam: TcxGridDBTableView;
+    TableRekamId: TcxGridDBColumn;
+    TableRekampasien_id: TcxGridDBColumn;
+    TableRekamanamnesis: TcxGridDBColumn;
+    TableRekamhasil_pemeriksaan: TcxGridDBColumn;
+    TableRekamdiagnosis: TcxGridDBColumn;
+    TableRekampenatalaksanaan: TcxGridDBColumn;
+    TableRekamtindakan_obat: TcxGridDBColumn;
+    TableRekampelayanan_lain: TcxGridDBColumn;
     procedure AcAutoExecute(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -73,18 +84,13 @@ procedure TFrmPasien.AcAutoExecute(Sender: TObject);
 var
   LSQL: string;
 begin
-  if QPasien.FieldByName('Kode').AsString = '' then
+  if TblPasien.FieldByName('Kode').AsString = '' then
     begin
       LSQL := 'SELECT CONCAT("ID", LPAD(IFNULL(MAX(id),0) + 1, 5 ,0)) as NewId '+
         'FROM TbPasien';
       dm.OpenQuery(LSQL);
-      QPasien.FieldByName('Kode').AsString := dm.QOpen.Fields[0].AsString;
+      TblPasien.FieldByName('Kode').AsString := dm.QOpen.Fields[0].AsString;
     end;
-end;
-
-procedure TFrmPasien.FormShow(Sender: TObject);
-begin
-  Dm.ExecSQL(QPasien, 'SELECT * FROM TbPasien');
 end;
 
 end.
