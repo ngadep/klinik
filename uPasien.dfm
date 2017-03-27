@@ -14,6 +14,7 @@ object FrmPasien: TFrmPasien
   OldCreateOrder = False
   ShowHint = True
   WindowState = wsMaximized
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Grid: TcxGrid
@@ -495,7 +496,6 @@ object FrmPasien: TFrmPasien
   object TblPasien: TMyTable
     TableName = 'tbpasien'
     Connection = Dm.Con
-    Active = True
     Left = 48
     Top = 192
   end
@@ -505,16 +505,8 @@ object FrmPasien: TFrmPasien
     DetailFields = 'pasien_id'
     MasterSource = DsPasien
     Connection = Dm.Con
-    Active = True
     Left = 48
     Top = 256
-    ParamData = <
-      item
-        DataType = ftInteger
-        Name = 'id'
-        ParamType = ptInput
-        Value = 1
-      end>
   end
   object Skin: TdxSkinController
     NativeStyle = False

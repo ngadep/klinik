@@ -73,6 +73,7 @@ type
     TableRekamtanggal: TcxGridDBColumn;
     GLEvelRekam: TcxGridLevel;
     procedure AcAutoExecute(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -99,6 +100,12 @@ begin
       dm.OpenQuery(LSQL);
       TblPasien.FieldByName('Kode').AsString := dm.QOpen.Fields[0].AsString;
     end;
+end;
+
+procedure TFrmPasien.FormShow(Sender: TObject);
+begin
+  TblPasien.Open;
+  TblRekamMedis.Open;
 end;
 
 end.
