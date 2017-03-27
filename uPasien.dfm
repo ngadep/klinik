@@ -23,191 +23,22 @@ object Form1: TForm1
     Align = alClient
     TabOrder = 0
     LookAndFeel.NativeStyle = True
-    RootLevelOptions.DetailTabsPosition = dtpTop
-    ExplicitLeft = -2
-    ExplicitTop = 8
-    object LayoutPasien: TcxGridDBLayoutView
-      Navigator.Buttons.CustomButtons = <>
-      Navigator.InfoPanel.Visible = True
-      Navigator.Visible = True
-      DataController.DataSource = DsPasien
-      DataController.Summary.DefaultGroupSummaryItems = <>
-      DataController.Summary.FooterSummaryItems = <>
-      DataController.Summary.SummaryGroups = <>
-      OptionsView.MinValueWidth = 250
-      object LayoutPasienid: TcxGridDBLayoutViewItem
-        DataBinding.FieldName = 'id'
-        Visible = False
-        LayoutItem = LayoutPasienLayoutItem1
-      end
-      object LayoutPasienkode: TcxGridDBLayoutViewItem
-        Caption = 'Kode'
-        DataBinding.FieldName = 'kode'
-        LayoutItem = LayoutPasienLayoutItem2
-      end
-      object LayoutPasiennama: TcxGridDBLayoutViewItem
-        Caption = 'Nama'
-        DataBinding.FieldName = 'nama'
-        LayoutItem = LayoutPasienLayoutItem3
-      end
-      object LayoutPasienjenis_kelamin: TcxGridDBLayoutViewItem
-        Caption = 'Kelamin'
-        DataBinding.FieldName = 'jenis_kelamin'
-        PropertiesClassName = 'TcxComboBoxProperties'
-        Properties.DropDownListStyle = lsFixedList
-        Properties.Items.Strings = (
-          'Pria'
-          'Wanita')
-        Properties.ReadOnly = False
-        LayoutItem = LayoutPasienLayoutItem4
-      end
-      object LayoutPasientempat_lahir: TcxGridDBLayoutViewItem
-        Caption = 'Tempat'
-        DataBinding.FieldName = 'tempat_lahir'
-        LayoutItem = LayoutPasienLayoutItem5
-      end
-      object LayoutPasientanggal_lahir: TcxGridDBLayoutViewItem
-        Caption = 'Tgl Lahir'
-        DataBinding.FieldName = 'tanggal_lahir'
-        LayoutItem = LayoutPasienLayoutItem6
-      end
-      object LayoutPasienalamat: TcxGridDBLayoutViewItem
-        Caption = 'Alamat Lengkap'
-        DataBinding.FieldName = 'alamat'
-        LayoutItem = LayoutPasienLayoutItem7
-      end
-      object LayoutPasienpekerjaan: TcxGridDBLayoutViewItem
-        Caption = 'Pekerjaan'
-        DataBinding.FieldName = 'pekerjaan'
-        LayoutItem = LayoutPasienLayoutItem8
-      end
-      object LayoutPasienpendidikan: TcxGridDBLayoutViewItem
-        Caption = 'Study'
-        DataBinding.FieldName = 'pendidikan'
-        PropertiesClassName = 'TcxComboBoxProperties'
-        Properties.DropDownListStyle = lsFixedList
-        Properties.Items.Strings = (
-          'SD'
-          'SLTP'
-          'SLTA'
-          'S1'
-          'S2'
-          'S3'
-          'LAIN')
-        LayoutItem = LayoutPasienLayoutItem9
-      end
-      object LayoutPasiengolongan_darah: TcxGridDBLayoutViewItem
-        Caption = 'Darah'
-        DataBinding.FieldName = 'golongan_darah'
-        PropertiesClassName = 'TcxComboBoxProperties'
-        Properties.DropDownListStyle = lsFixedList
-        Properties.Items.Strings = (
-          'A'
-          'AB'
-          'B'
-          'O')
-        LayoutItem = LayoutPasienLayoutItem10
-      end
-      object LayoutPasienstatus_nikah: TcxGridDBLayoutViewItem
-        Caption = 'Nikah'
-        DataBinding.FieldName = 'status_nikah'
-        PropertiesClassName = 'TcxComboBoxProperties'
-        Properties.DropDownListStyle = lsFixedList
-        Properties.Items.Strings = (
-          'BELUM NIKAH'
-          'NIKAH')
-        LayoutItem = LayoutPasienLayoutItem11
-      end
-      object LayoutPasiennama_ortu: TcxGridDBLayoutViewItem
-        Caption = 'Ortu'
-        DataBinding.FieldName = 'nama_ortu'
-        LayoutItem = LayoutPasienLayoutItem12
-      end
-      object LayoutPasienpekerjaan_ortu: TcxGridDBLayoutViewItem
-        Caption = 'Pekerjaan Ortu'
-        DataBinding.FieldName = 'pekerjaan_ortu'
-        LayoutItem = LayoutPasienLayoutItem13
-      end
-      object LayoutPasiennama_pasangan: TcxGridDBLayoutViewItem
-        Caption = 'Nama Pasangan'
-        DataBinding.FieldName = 'nama_pasangan'
-        LayoutItem = LayoutPasienLayoutItem14
-      end
-      object LayoutPasienGroup_Root: TdxLayoutGroup
-        AlignHorz = ahLeft
-        AlignVert = avTop
-        CaptionOptions.Text = 'Template Card'
-        CaptionOptions.Visible = False
-        ButtonOptions.Buttons = <>
-        Hidden = True
-        ShowBorder = False
-        Index = -1
-      end
-      object LayoutPasienLayoutItem1: TcxGridLayoutItem
-        Index = -1
-      end
-      object LayoutPasienLayoutItem2: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 0
-      end
-      object LayoutPasienLayoutItem3: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 1
-      end
-      object LayoutPasienLayoutItem4: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 2
-      end
-      object LayoutPasienLayoutItem5: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 3
-      end
-      object LayoutPasienLayoutItem6: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 4
-      end
-      object LayoutPasienLayoutItem7: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 5
-      end
-      object LayoutPasienLayoutItem8: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 6
-      end
-      object LayoutPasienLayoutItem9: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 7
-      end
-      object LayoutPasienLayoutItem10: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 8
-      end
-      object LayoutPasienLayoutItem11: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        SizeOptions.Width = 118
-        Index = 9
-      end
-      object LayoutPasienLayoutItem12: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 10
-      end
-      object LayoutPasienLayoutItem13: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 11
-      end
-      object LayoutPasienLayoutItem14: TcxGridLayoutItem
-        Parent = LayoutPasienGroup_Root
-        Index = 12
-      end
-    end
     object Tablepasien: TcxGridDBTableView
+      Navigator.Buttons.ConfirmDelete = True
       Navigator.Buttons.CustomButtons = <>
-      Navigator.InfoPanel.Visible = True
+      Navigator.Buttons.PriorPage.Visible = False
+      Navigator.Buttons.NextPage.Visible = False
+      Navigator.Buttons.Append.Visible = False
+      Navigator.Buttons.SaveBookmark.Visible = False
+      Navigator.Buttons.GotoBookmark.Visible = False
       Navigator.Visible = True
       DataController.DataSource = DsPasien
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
+      EditForm.UseDefaultLayout = False
+      OptionsBehavior.IncSearch = True
+      OptionsBehavior.EditMode = emInplaceEditForm
       OptionsCustomize.ColumnsQuickCustomization = True
       OptionsView.ColumnAutoWidth = True
       OptionsView.GroupByBox = False
@@ -219,81 +50,246 @@ object Form1: TForm1
       object Tablepasienkode: TcxGridDBColumn
         Caption = 'Kode'
         DataBinding.FieldName = 'kode'
+        PropertiesClassName = 'TcxButtonEditProperties'
+        Properties.Buttons = <
+          item
+            Action = AcAuto
+            Default = True
+            Kind = bkEllipsis
+          end>
+        Properties.ReadOnly = True
+        LayoutItem = TablepasienLayoutItem1.Owner
         Width = 45
       end
       object Tablepasiennama: TcxGridDBColumn
         Caption = 'Nama'
         DataBinding.FieldName = 'nama'
+        LayoutItem = TablepasienLayoutItem2.Owner
         Width = 127
       end
       object Tablepasienjenis_kelamin: TcxGridDBColumn
         Caption = 'Kelamin'
         DataBinding.FieldName = 'jenis_kelamin'
+        PropertiesClassName = 'TcxComboBoxProperties'
+        Properties.DropDownListStyle = lsFixedList
+        Properties.Items.Strings = (
+          'Pria'
+          'Wanita')
+        LayoutItem = TablepasienLayoutItem3.Owner
         Width = 50
       end
       object Tablepasientempat_lahir: TcxGridDBColumn
         Caption = 'Tempat'
         DataBinding.FieldName = 'tempat_lahir'
+        LayoutItem = TablepasienLayoutItem4.Owner
         Width = 60
       end
       object Tablepasientanggal_lahir: TcxGridDBColumn
         Caption = 'Tgl Lahir'
         DataBinding.FieldName = 'tanggal_lahir'
+        LayoutItem = TablepasienLayoutItem5.Owner
         Width = 59
       end
       object Tablepasienalamat: TcxGridDBColumn
         Caption = 'Alamat Lengkap'
         DataBinding.FieldName = 'alamat'
-        Visible = False
+        LayoutItem = TablepasienLayoutItem6.Owner
         Width = 91
       end
       object Tablepasienpekerjaan: TcxGridDBColumn
         Caption = 'Pekerjaan'
         DataBinding.FieldName = 'pekerjaan'
+        LayoutItem = TablepasienLayoutItem7.Owner
         Width = 42
       end
       object Tablepasienpendidikan: TcxGridDBColumn
         Caption = 'Studi'
         DataBinding.FieldName = 'pendidikan'
-        Visible = False
+        PropertiesClassName = 'TcxComboBoxProperties'
+        Properties.DropDownListStyle = lsFixedList
+        Properties.Items.Strings = (
+          'SD'
+          'SLTP'
+          'SLTA'
+          'S1'
+          'S2'
+          'S3'
+          'LAIN')
+        LayoutItem = TablepasienLayoutItem8.Owner
         Width = 38
       end
       object Tablepasiengolongan_darah: TcxGridDBColumn
         Caption = 'Darah'
         DataBinding.FieldName = 'golongan_darah'
+        PropertiesClassName = 'TcxComboBoxProperties'
+        Properties.DropDownListStyle = lsFixedList
+        Properties.Items.Strings = (
+          'A'
+          'AB'
+          'B'
+          'O'
+          'LAIN')
+        LayoutItem = TablepasienLayoutItem9.Owner
         Width = 36
       end
       object Tablepasienstatus_nikah: TcxGridDBColumn
         Caption = 'NIKAH'
         DataBinding.FieldName = 'status_nikah'
+        PropertiesClassName = 'TcxComboBoxProperties'
+        Properties.DropDownListStyle = lsFixedList
+        Properties.Items.Strings = (
+          'BELUM NIKAH'
+          'NIKAH')
+        LayoutItem = TablepasienLayoutItem10.Owner
         Width = 45
       end
       object Tablepasiennama_ortu: TcxGridDBColumn
         Caption = 'ORTU'
         DataBinding.FieldName = 'nama_ortu'
-        Visible = False
+        LayoutItem = TablepasienLayoutItem11.Owner
         Width = 47
       end
       object Tablepasienpekerjaan_ortu: TcxGridDBColumn
         Caption = 'Pekerjaan ORTU'
         DataBinding.FieldName = 'pekerjaan_ortu'
-        Visible = False
+        LayoutItem = TablepasienLayoutItem12.Owner
         Width = 38
       end
       object Tablepasiennama_pasangan: TcxGridDBColumn
         Caption = 'Pasangan'
         DataBinding.FieldName = 'nama_pasangan'
-        Visible = False
+        LayoutItem = TablepasienLayoutItem13.Owner
         Width = 33
+      end
+      object TablepasienRootGroup: TcxGridInplaceEditFormGroup
+        AlignHorz = ahLeft
+        AlignVert = avTop
+        CaptionOptions.Text = 'Template Card'
+        ButtonOptions.Buttons = <>
+        Hidden = True
+        ItemIndex = 1
+        ShowBorder = False
+        Index = -1
+      end
+      object TablepasienLayoutItem1: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup3.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 0
+      end
+      object TablepasienLayoutItem2: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup3.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 1
+      end
+      object TablepasienLayoutItem3: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup3.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 2
+      end
+      object TablepasienLayoutItem4: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup4.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 0
+      end
+      object TablepasienLayoutItem5: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup4.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 1
+      end
+      object TablepasienLayoutItem6: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup4.Owner
+        AlignHorz = ahClient
+        AlignVert = avClient
+        Index = 4
+      end
+      object TablepasienLayoutItem7: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup4.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 3
+      end
+      object TablepasienLayoutItem8: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup4.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 2
+      end
+      object TablepasienLayoutItem9: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup3.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 3
+      end
+      object TablepasienLayoutItem10: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup5.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 0
+      end
+      object TablepasienLayoutItem11: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup5.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        Index = 2
+      end
+      object TablepasienLayoutItem12: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup5.Owner
+        AlignHorz = ahClient
+        AlignVert = avClient
+        Index = 3
+      end
+      object TablepasienLayoutItem13: TcxGridInplaceEditFormLayoutItem
+        Parent = TablepasienGroup5.Owner
+        AlignHorz = ahLeft
+        AlignVert = avTop
+        SizeOptions.Width = 254
+        Index = 1
+      end
+      object TablepasienGroup3: TdxLayoutGroup
+        Parent = TablepasienGroup1.Owner
+        AlignHorz = ahLeft
+        AlignVert = avClient
+        CaptionOptions.Text = 'Umum'
+        SizeOptions.Width = 293
+        ButtonOptions.Buttons = <>
+        ItemIndex = 3
+        Index = 0
+      end
+      object TablepasienGroup4: TdxLayoutGroup
+        Parent = TablepasienRootGroup.Owner
+        AlignHorz = ahClient
+        AlignVert = avTop
+        CaptionOptions.Text = 'Keterangan'
+        SizeOptions.Width = 288
+        ButtonOptions.Buttons = <>
+        Index = 1
+      end
+      object TablepasienGroup5: TdxLayoutGroup
+        Parent = TablepasienGroup1.Owner
+        AlignHorz = ahLeft
+        AlignVert = avTop
+        CaptionOptions.Text = 'Keluarga'
+        SizeOptions.Height = 114
+        SizeOptions.Width = 92
+        ButtonOptions.Buttons = <>
+        ItemIndex = 1
+        Index = 1
+      end
+      object TablepasienGroup1: TdxLayoutAutoCreatedGroup
+        Parent = TablepasienRootGroup.Owner
+        LayoutDirection = ldHorizontal
+        Index = 0
+        AutoCreated = True
       end
     end
     object GLevelViewTabel: TcxGridLevel
       Caption = 'Tabel'
       GridView = Tablepasien
-    end
-    object GLevelViewLayout: TcxGridLevel
-      Caption = 'Detail'
-      GridView = LayoutPasien
     end
   end
   object QPasien: TMyQuery
@@ -308,5 +304,13 @@ object Form1: TForm1
     DataSet = QPasien
     Left = 104
     Top = 16
+  end
+  object ActionList: TActionList
+    Left = 64
+    Top = 88
+    object AcAuto: TAction
+      Caption = 'Auto Code'
+      OnExecute = AcAutoExecute
+    end
   end
 end

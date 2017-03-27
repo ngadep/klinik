@@ -25,7 +25,8 @@ uses
   cxGridCustomTableView, cxGridCustomLayoutView, cxGridLayoutView, cxClasses,
   cxGridLevel, cxGrid, Data.DB, MemDS, DBAccess, MyAccess, cxDBData,
   cxGridDBLayoutView, cxGridViewLayoutContainer, cxDropDownEdit,
-  cxGridTableView, cxGridDBTableView, cxMemo;
+  cxGridTableView, cxGridDBTableView, cxMemo, cxGridCardView, cxGridDBCardView,
+  cxRadioGroup, cxButtonEdit, System.Actions, Vcl.ActnList;
 
 type
   TForm1 = class(TForm)
@@ -33,37 +34,6 @@ type
     Grid: TcxGrid;
     QPasien: TMyQuery;
     DsPasien: TDataSource;
-    LayoutPasienGroup_Root: TdxLayoutGroup;
-    LayoutPasien: TcxGridDBLayoutView;
-    LayoutPasienLayoutItem1: TcxGridLayoutItem;
-    LayoutPasienid: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem2: TcxGridLayoutItem;
-    LayoutPasienkode: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem3: TcxGridLayoutItem;
-    LayoutPasiennama: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem4: TcxGridLayoutItem;
-    LayoutPasienjenis_kelamin: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem5: TcxGridLayoutItem;
-    LayoutPasientempat_lahir: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem6: TcxGridLayoutItem;
-    LayoutPasientanggal_lahir: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem7: TcxGridLayoutItem;
-    LayoutPasienalamat: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem8: TcxGridLayoutItem;
-    LayoutPasienpekerjaan: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem9: TcxGridLayoutItem;
-    LayoutPasienpendidikan: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem10: TcxGridLayoutItem;
-    LayoutPasiengolongan_darah: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem11: TcxGridLayoutItem;
-    LayoutPasienstatus_nikah: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem12: TcxGridLayoutItem;
-    LayoutPasiennama_ortu: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem13: TcxGridLayoutItem;
-    LayoutPasienpekerjaan_ortu: TcxGridDBLayoutViewItem;
-    LayoutPasienLayoutItem14: TcxGridLayoutItem;
-    LayoutPasiennama_pasangan: TcxGridDBLayoutViewItem;
-    GLevelViewLayout: TcxGridLevel;
     Tablepasien: TcxGridDBTableView;
     Tablepasienid: TcxGridDBColumn;
     Tablepasienkode: TcxGridDBColumn;
@@ -79,6 +49,9 @@ type
     Tablepasiennama_ortu: TcxGridDBColumn;
     Tablepasienpekerjaan_ortu: TcxGridDBColumn;
     Tablepasiennama_pasangan: TcxGridDBColumn;
+    ActionList: TActionList;
+    AcAuto: TAction;
+    procedure AcAutoExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -93,5 +66,18 @@ implementation
 {$R *.dfm}
 
 uses uDm;
+
+procedure TForm1.AcAutoExecute(Sender: TObject);
+var
+  LSQL: string;
+begin
+  if QPasien.FieldByName('Kode').AsString = '' then
+    begin
+      LSQL := 'SELECT CONCAT("ID", LPAD(IFNULL(MAX(id),0) + 1, 5 ,0)) as NewId '+
+        'FROM TbPasien';
+      dm.OpenQuery(LSQL);
+      QPasien.FieldByName('Kode').AsString := dm.QOpen.Fields[0].AsString;
+    end;
+end;
 
 end.
