@@ -1,7 +1,7 @@
-object Form1: TForm1
+object FrmPasien: TFrmPasien
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Daftar Pasien'
   ClientHeight = 449
   ClientWidth = 698
   Color = clBtnFace

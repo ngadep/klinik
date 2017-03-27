@@ -29,7 +29,7 @@ uses
   cxRadioGroup, cxButtonEdit, System.Actions, Vcl.ActnList;
 
 type
-  TForm1 = class(TForm)
+  TFrmPasien = class(TForm)
     GLevelViewTabel: TcxGridLevel;
     Grid: TcxGrid;
     QPasien: TMyQuery;
@@ -59,7 +59,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  FrmPasien: TFrmPasien;
 
 implementation
 
@@ -67,7 +67,7 @@ implementation
 
 uses uDm;
 
-procedure TForm1.AcAutoExecute(Sender: TObject);
+procedure TFrmPasien.AcAutoExecute(Sender: TObject);
 var
   LSQL: string;
 begin
