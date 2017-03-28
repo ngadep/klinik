@@ -46,11 +46,6 @@ type
     TableRekampenatalaksanaan: TcxGridDBColumn;
     TableRekamtindakan_obat: TcxGridDBColumn;
     TableRekampelayanan_lain: TcxGridDBColumn;
-    Menu: TMainMenu;
-    MasterData1: TMenuItem;
-    DaftarPasien1: TMenuItem;
-    Bantuan1: TMenuItem;
-    entangAplikasi1: TMenuItem;
     TableRekamtanggal: TcxGridDBColumn;
     GLEvelRekam: TcxGridLevel;
     QPasien: TFDQuery;

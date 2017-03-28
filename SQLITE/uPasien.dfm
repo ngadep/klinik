@@ -2,7 +2,7 @@ object FrmPasien: TFrmPasien
   Left = 0
   Top = 0
   Caption = 'Aplikasi Rekam Medis Klinik'
-  ClientHeight = 396
+  ClientHeight = 416
   ClientWidth = 708
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -10,7 +10,6 @@ object FrmPasien: TFrmPasien
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  Menu = Menu
   OldCreateOrder = False
   ShowHint = True
   WindowState = wsMaximized
@@ -22,13 +21,14 @@ object FrmPasien: TFrmPasien
     Left = 3
     Top = 3
     Width = 702
-    Height = 390
+    Height = 410
     Align = alClient
     TabOrder = 0
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = ''
     RootLevelOptions.DetailTabsPosition = dtpTop
+    ExplicitHeight = 390
     object Tablepasien: TcxGridDBTableView
       Navigator.Buttons.ConfirmDelete = True
       Navigator.Buttons.CustomButtons = <>
@@ -493,22 +493,6 @@ object FrmPasien: TFrmPasien
     DataSet = QRekamMedis
     Left = 144
     Top = 256
-  end
-  object Menu: TMainMenu
-    Left = 480
-    Top = 192
-    object MasterData1: TMenuItem
-      Caption = 'Master Data'
-      object DaftarPasien1: TMenuItem
-        Caption = 'Daftar Pasien'
-      end
-    end
-    object Bantuan1: TMenuItem
-      Caption = 'Bantuan'
-      object entangAplikasi1: TMenuItem
-        Caption = 'Tentang Aplikasi'
-      end
-    end
   end
   object QPasien: TFDQuery
     Connection = Dm.Con
