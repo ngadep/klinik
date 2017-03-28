@@ -23,6 +23,8 @@ type
     procedure DataModuleCreate(Sender: TObject);
   private
     procedure ConnectToDb(ADb: string);
+    procedure CreateTabelPasien;
+    procedure CreateTabelRekamMedis;
     { Private declarations }
   public
     procedure ExecSQL(AComponent: TFDQuery; const ASQL: string; AOpen: Boolean = True);
@@ -46,9 +48,60 @@ begin
   con.Open;
 end;
 
+procedure TDm.CreateTabelPasien;
+begin
+  Con.ExecSQL(
+    'CREATE TABLE IF NOT EXISTS TbPasien ( '+
+    'id             INTEGER       PRIMARY KEY AUTOINCREMENT ' +
+                                 'NOT NULL, ' +
+    'kode           VARCHAR (25)  NOT NULL ' +
+                                 'UNIQUE, ' +
+    'nama           VARCHAR (50)  NOT NULL, ' +
+    'jenis_kelamin  VARCHAR (6)   NOT NULL, ' +
+    'tempat_lahir   VARCHAR (20)  DEFAULT NULL, ' +
+    'tanggal_lahir  DATE          DEFAULT NULL, ' +
+    'alamat         VARCHAR (255) DEFAULT NULL, ' +
+    'pekerjaan      VARCHAR (25)  DEFAULT NULL, ' +
+    'pendidikan     VARCHAR (5)   DEFAULT "LAIN", ' +
+    'golongan_darah VARCHAR (5)   DEFAULT "LAIN", ' +
+    'status_nikah   VARCHAR (15)  DEFAULT NULL, ' +
+    'nama_ortu      VARCHAR (50)  DEFAULT NULL, ' +
+    'pekerjaan_ortu VARCHAR (25)  DEFAULT NULL, ' +
+    'nama_pasangan  VARCHAR (50)  DEFAULT NULL ' +
+    ');' );
+end;
+
+procedure TDm.CreateTabelRekamMedis;
+begin
+  Con.ExecSQL(
+    'CREATE TABLE IF NOT EXISTS TbRekamMedis ( '+
+    'Id                INTEGER       PRIMARY KEY AUTOINCREMENT '+
+                                    'NOT NULL, '+
+    'pasien_id         INTEGER       REFERENCES TbPasien (id) ON DELETE RESTRICT '+
+                                                             'ON UPDATE CASCADE '+
+                                    'NOT NULL, '+
+    'tanggal           DATETIME      DEFAULT (CURRENT_TIMESTAMP), '+
+    'anamnesis         VARCHAR (255) DEFAULT NULL, '+
+    'hasil_pemeriksaan VARCHAR (255) DEFAULT NULL, '+
+    'diagnosis         VARCHAR (255) DEFAULT NULL, '+
+    'penatalaksanaan   VARCHAR (255) DEFAULT NULL, '+
+    'tindakan_obat     VARCHAR (255) DEFAULT NULL, '+
+    'pelayanan_lain    VARCHAR (255) DEFAULT NULL '+
+    ');' );
+
+end;
+
 procedure TDm.DataModuleCreate(Sender: TObject);
+var
+  LTotalTabel: Integer;
 begin
   ConnectToDb('klinik.sdb');
+  LTotalTabel := Con.ExecSQLScalar('SELECT count(*) FROM sqlite_master WHERE type="table"');
+  if LTotalTabel = 0 then
+    begin
+      CreateTabelPasien;
+      CreateTabelRekamMedis;
+    end;
 end;
 
 procedure TDm.ExecSQL(AComponent: TFDQuery; const ASQL: string; AOpen: Boolean);
