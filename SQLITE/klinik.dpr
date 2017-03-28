@@ -12,6 +12,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.Title := 'Aplikasi Rekam Medis';
   TStyleManager.TrySetStyle('Windows10 Blue');
   Application.CreateForm(TDm, Dm);
   Application.CreateForm(TFrmPasien, FrmPasien);
