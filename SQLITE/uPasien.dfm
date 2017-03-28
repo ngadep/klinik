@@ -30,7 +30,6 @@ object FrmPasien: TFrmPasien
     RootLevelOptions.DetailTabsPosition = dtpTop
     ExplicitHeight = 390
     object Tablepasien: TcxGridDBTableView
-      Navigator.Buttons.ConfirmDelete = True
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.PriorPage.Visible = False
       Navigator.Buttons.NextPage.Visible = False
@@ -300,7 +299,6 @@ object FrmPasien: TFrmPasien
       end
     end
     object TableRekam: TcxGridDBTableView
-      Navigator.Buttons.ConfirmDelete = True
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.PriorPage.Visible = False
       Navigator.Buttons.NextPage.Visible = False
