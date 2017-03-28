@@ -50,8 +50,16 @@ type
     GLEvelRekam: TcxGridLevel;
     QPasien: TFDQuery;
     QRekamMedis: TFDQuery;
+    MainMenu1: TMainMenu;
+    Master1: TMenuItem;
+    DaftarPasien1: TMenuItem;
+    ExportToExellxlsx1: TMenuItem;
+    sd: TSaveDialog;
+    ExportDataToExcell1: TMenuItem;
     procedure AcAutoExecute(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ExportToExellxlsx1Click(Sender: TObject);
+    procedure ExportDataToExcell1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDm;
+uses uDm, cxGridExportLink;
 
 procedure TFrmPasien.AcAutoExecute(Sender: TObject);
 var
@@ -77,6 +85,40 @@ begin
       dm.OpenQuery(LSQL);
       LKode := 'ID' + dm.QOpen.Fields[0].AsString.PadLeft(5, '0');
       QPasien.FieldByName('Kode').AsString := LKode;
+    end;
+end;
+
+procedure TFrmPasien.ExportDataToExcell1Click(Sender: TObject);
+begin
+  if sd.Execute then
+    begin
+      if sd.FilterIndex = 1 then
+        begin
+          sd.DefaultExt := '.xlsx';
+          ExportGridDataToXLSX(sd.FileName, Grid);
+        end else
+      if sd.FilterIndex = 2 then
+        begin
+          sd.DefaultExt := '.xls';
+          ExportGridDataToExcel(sd.FileName, Grid);
+        end;
+    end;
+end;
+
+procedure TFrmPasien.ExportToExellxlsx1Click(Sender: TObject);
+begin
+  if sd.Execute then
+    begin
+      if sd.FilterIndex = 1 then
+        begin
+          sd.DefaultExt := '.xlsx';
+          ExportGridToXLSX(sd.FileName, Grid);
+        end else
+      if sd.FilterIndex = 2 then
+        begin
+          sd.DefaultExt := '.xls';
+          ExportGridToExcel(sd.FileName, Grid);
+        end;
     end;
 end;
 

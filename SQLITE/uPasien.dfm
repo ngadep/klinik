@@ -10,6 +10,7 @@ object FrmPasien: TFrmPasien
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   ShowHint = True
   WindowState = wsMaximized
@@ -513,5 +514,29 @@ object FrmPasien: TFrmPasien
         Name = 'ID'
         ParamType = ptInput
       end>
+  end
+  object MainMenu1: TMainMenu
+    Left = 352
+    Top = 216
+    object Master1: TMenuItem
+      Caption = 'Master'
+      object DaftarPasien1: TMenuItem
+        Caption = 'Export Aktif Grid'
+        object ExportToExellxlsx1: TMenuItem
+          Caption = 'Export To Exell'
+          OnClick = ExportToExellxlsx1Click
+        end
+        object ExportDataToExcell1: TMenuItem
+          Caption = 'Export Data To Excell'
+          OnClick = ExportDataToExcell1Click
+        end
+      end
+    end
+  end
+  object sd: TSaveDialog
+    Filter = 'Excell 2007|*.xlsx|Excel 97-2003|*.xls'
+    FilterIndex = 0
+    Left = 472
+    Top = 184
   end
 end
