@@ -96,12 +96,8 @@ var
   LTotalTabel: Integer;
 begin
   ConnectToDb('klinik.sdb');
-  LTotalTabel := Con.ExecSQLScalar('SELECT count(*) FROM sqlite_master WHERE type="table"');
-  if LTotalTabel = 0 then
-    begin
-      CreateTabelPasien;
-      CreateTabelRekamMedis;
-    end;
+  CreateTabelPasien;
+  CreateTabelRekamMedis;
 end;
 
 procedure TDm.ExecSQL(AComponent: TFDQuery; const ASQL: string; AOpen: Boolean);
